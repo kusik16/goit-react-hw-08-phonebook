@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -8,7 +7,6 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import ContactPhoneIcon from '@mui/icons-material/Folder';
 
 import './contactList.css';
 

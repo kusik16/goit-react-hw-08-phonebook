@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import validationSchema from './validationSchema';
@@ -27,7 +26,6 @@ const ContactForm = ({ onAddContact, createError }) => {
 			onSubmit={formik.handleSubmit}
 			component="form"
 			sx={{
-				// '& > :not(style)': { m: 1, width: '25ch' },
 				width: '100%',
 				maxWidth: 500,
 				backgroundColor: '#f0f0f0',

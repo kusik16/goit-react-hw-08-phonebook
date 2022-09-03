@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -9,7 +8,6 @@ const Filter = ({ onFilter }) => {
 	return (
 		<>
 			<div className="filter__title">Find contacts by name</div>
-			{/* <input onChange={e => onFilter(e)} type="text" name="filter" /> */}
 			<TextField
 				sx={{
 					margin: '0 auto',

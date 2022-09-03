@@ -20,7 +20,7 @@ import {
 import './userMenu.css';
 
 const UserMenu = () => {
-	const [createError, setCreateError] = useState(null);
+	const [createError, setCreateError] = useState('');
 
 	const { filter } = useSelector(state => state.contacts);
 	const dispatch = useDispatch();
