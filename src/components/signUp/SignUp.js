@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 import Avatar from '@mui/material/Avatar';
@@ -21,6 +21,7 @@ const theme = createTheme();
 export default function SignUp() {
 	const [signUp] = useSignUpMutation();
 	const [regError, setRegError] = useState(null);
+	let navigate = useNavigate();
 
 	const formik = useFormik({
 		initialValues: {
@@ -55,6 +56,7 @@ export default function SignUp() {
 		signUp(regInfo)
 			.unwrap()
 			.then(res => localStorage.setItem('token', res.token))
+			.then(() => navigate('/goit-react-hw-08-phonebook/contacts'))
 			.catch(e => {
 				if (e.status === 400) {
 					setRegError('Invalid signup data');

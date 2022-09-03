@@ -48,7 +48,7 @@ export default function SignIn() {
 		signIn(logInfo)
 			.unwrap()
 			.then(res => localStorage.setItem('token', res.token))
-			.then(() => navigate('/contacts'))
+			.then(() => navigate('/goit-react-hw-08-phonebook/contacts'))
 			.catch(e => {
 				if (e.status === 400) {
 					setRegError('Invalid signup data');
