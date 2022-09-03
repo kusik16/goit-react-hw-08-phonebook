@@ -32,9 +32,9 @@ const UserMenu = () => {
 	const { data: contacts = [] } = useGetContactsQuery();
 
 	const onLogOut = () => {
+		navigate('/login');
 		logOut().then(() => {
 			localStorage.removeItem('token');
-			navigate('/login');
 		});
 	};
 
