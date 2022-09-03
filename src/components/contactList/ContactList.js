@@ -23,27 +23,34 @@ const ContactList = ({ filteredContacts, onDeleteContact }) => {
 			}}
 		>
 			<List>
-				{filteredContacts.map(({ id, name, number }) => {
-					return (
-						<ListItem
-							key={id}
-							secondaryAction={
-								<IconButton
-									onClick={() => onDeleteContact(id)}
-									edge="end"
-									aria-label="delete"
-								>
-									<DeleteIcon />
-								</IconButton>
-							}
-						>
-							<ListItemAvatar>
-								<Avatar />
-							</ListItemAvatar>
-							<ListItemText primary={name} secondary={number} />
-						</ListItem>
-					);
-				})}
+				{filteredContacts.length > 0 ? (
+					filteredContacts.map(({ id, name, number }) => {
+						return (
+							<ListItem
+								key={id}
+								secondaryAction={
+									<IconButton
+										onClick={() => onDeleteContact(id)}
+										edge="end"
+										aria-label="delete"
+									>
+										<DeleteIcon />
+									</IconButton>
+								}
+							>
+								<ListItemAvatar>
+									<Avatar />
+								</ListItemAvatar>
+								<ListItemText
+									primary={name}
+									secondary={number}
+								/>
+							</ListItem>
+						);
+					})
+				) : (
+					<div className='no-items'>No results</div>
+				)}
 			</List>
 		</Box>
 	);
