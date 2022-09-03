@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ProtectedRoute = ({ children }) => {
 	const isAuthenticated = localStorage.getItem('token');
 	if (!isAuthenticated) {
-		return <Navigate to="/login" replace />;
+		return <Navigate to="/goit-react-hw-08-phonebook/login" replace />;
 	}
 
 	return children;
