@@ -118,7 +118,7 @@ export default function SignIn() {
 						</Button>
 						<Grid container>
 							<Grid item>
-								<ReactLink to="/register">
+								<ReactLink to="/goit-react-hw-08-phonebook/register">
 									{"Don't have an account? Sign Up"}
 								</ReactLink>
 							</Grid>

@@ -32,7 +32,7 @@ const UserMenu = () => {
 	const { data: contacts = [] } = useGetContactsQuery();
 
 	const onLogOut = () => {
-		navigate('/login');
+		navigate('/goit-react-hw-08-phonebook/login');
 		logOut().then(() => {
 			localStorage.removeItem('token');
 		});

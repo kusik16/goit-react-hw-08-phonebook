@@ -16,11 +16,22 @@ const App = () => {
 			<div className="app">
 				<main>
 					<Routes>
-						<Route path="/*" element={<Navigate to="/contacts" />} />
-						<Route index path="/login" element={<SignIn />} />
-						<Route path="/register" element={<SignUp />} />
 						<Route
-							path="/contacts"
+							path="/goit-react-hw-08-phonebook/*"
+							element={
+								<Navigate to="/goit-react-hw-08-phonebook/contacts" />
+							}
+						/>
+						<Route
+							path="/goit-react-hw-08-phonebook/login"
+							element={<SignIn />}
+						/>
+						<Route
+							path="/goit-react-hw-08-phonebook/register"
+							element={<SignUp />}
+						/>
+						<Route
+							path="/goit-react-hw-08-phonebook/contacts"
 							element={
 								<ProtectedRoute>
 									<UserMenu />

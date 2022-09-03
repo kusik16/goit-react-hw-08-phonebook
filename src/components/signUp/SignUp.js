@@ -155,7 +155,7 @@ export default function SignUp() {
 						</Button>
 						<Grid container justifyContent="flex-end">
 							<Grid item>
-								<ReactLink to="/login">
+								<ReactLink to="/goit-react-hw-08-phonebook/login">
 									Already have an account? Sign in
 								</ReactLink>
 							</Grid>
