@@ -11,5 +11,5 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-    align-items: end;
+    align-items: flex-end;
 }
