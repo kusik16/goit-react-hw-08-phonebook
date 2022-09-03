@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
 
 import SignIn from 'components/signIn/SignIn';
 import SignUp from 'components/signUp/SignUp';
@@ -11,10 +16,11 @@ const App = () => {
 			<div className="app">
 				<main>
 					<Routes>
-						<Route path="login" element={<SignIn />} />
-						<Route path="register" element={<SignUp />} />
+						<Route path="/*" element={<Navigate to="/contacts" />} />
+						<Route index path="/login" element={<SignIn />} />
+						<Route path="/register" element={<SignUp />} />
 						<Route
-							path="contacts"
+							path="/contacts"
 							element={
 								<ProtectedRoute>
 									<UserMenu />
