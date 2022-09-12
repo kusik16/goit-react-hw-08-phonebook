@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
+
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-
-import './filter.css';
+import Box from '@mui/material/Box';
 
 const Filter = ({ onFilter }) => {
 	return (
 		<>
-			<div className="filter__title">Find contacts by name</div>
+			<Box
+				sx={{
+					marginBottom: '10px',
+				}}
+			>
+				Find contacts by name
+			</Box>
 			<TextField
 				sx={{
 					margin: '0 auto',

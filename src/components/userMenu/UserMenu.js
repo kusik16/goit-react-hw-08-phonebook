@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 import ContactForm from '../contactForm/ContactForm';
 import Filter from '../filter/Filter';
@@ -16,8 +17,6 @@ import {
 	useGetContactsQuery,
 	useLogOutMutation,
 } from '../../api/apiSlice';
-
-import './userMenu.css';
 
 const UserMenu = () => {
 	const [createError, setCreateError] = useState('');
@@ -84,9 +83,22 @@ const UserMenu = () => {
 	}, [contacts, filter]);
 
 	return (
-		<div style={{ margin: '0 auto', width: '100%', maxWidth: 500 }}>
-			<div className="header">
-				<div className="phonebook-title">Phonebook</div>
+		<Box sx={{ margin: '0 auto', width: '100%', maxWidth: 500 }}>
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'space-between',
+					marginBottom: '15px',
+					alignItems: 'flex-end',
+				}}
+			>
+				<Box
+					sx={{
+						fontSize: '35px',
+					}}
+				>
+					Phonebook
+				</Box>
 				<Button
 					onClick={onLogOut}
 					sx={{
@@ -98,18 +110,25 @@ const UserMenu = () => {
 				>
 					Logout
 				</Button>
-			</div>
+			</Box>
 			<ContactForm
 				onAddContact={onAddContact}
 				createError={createError}
 			/>
-			<div className="contacts-title">Contacts</div>
+			<Box
+				sx={{
+					fontSize: '35px',
+					marginBottom: '10px',
+				}}
+			>
+				Contacts
+			</Box>
 			<Filter onFilter={onFilter} />
 			<ContactList
 				filteredContacts={filteredContacts}
 				onDeleteContact={onDeleteContact}
 			/>
-		</div>
+		</Box>
 	);
 };
 

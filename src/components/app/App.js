@@ -13,7 +13,7 @@ import ProtectedRoute from 'components/protectedRoute/ProtectedRoute';
 const App = () => {
 	return (
 		<Router>
-			<div className="app">
+			<div>
 				<main>
 					<Routes>
 						<Route

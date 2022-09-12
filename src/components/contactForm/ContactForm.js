@@ -7,8 +7,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 
-import './contactForm.css';
-
 const ContactForm = ({ onAddContact, createError }) => {
 	const formik = useFormik({
 		initialValues: {
@@ -72,7 +70,19 @@ const ContactForm = ({ onAddContact, createError }) => {
 			>
 				Add contact
 			</Button>
-			{createError ? <div className="error">{createError}</div> : null}
+			{createError && (
+				<Box
+					sx={{
+						textAlign: 'center',
+						paddingTop: '10px',
+						paddingBottom: '10px',
+						fontSize: '20px',
+						color: 'red',
+					}}
+				>
+					{createError}
+				</Box>
+			)}
 		</Box>
 	);
 };
@@ -81,4 +91,5 @@ export default ContactForm;
 
 ContactForm.propTypes = {
 	onAddContact: PropTypes.func.isRequired,
+	createError: PropTypes.string.isRequired,
 };

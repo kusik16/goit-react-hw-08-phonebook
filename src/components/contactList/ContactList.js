@@ -8,8 +8,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 
-import './contactList.css';
-
 const ContactList = ({ filteredContacts, onDeleteContact }) => {
 	return (
 		<Box
@@ -49,7 +47,13 @@ const ContactList = ({ filteredContacts, onDeleteContact }) => {
 						);
 					})
 				) : (
-					<div className='no-items'>No results</div>
+					<Box
+						sx={{
+							marginLeft: '15px',
+						}}
+					>
+						No results
+					</Box>
 				)}
 			</List>
 		</Box>
@@ -59,6 +63,12 @@ const ContactList = ({ filteredContacts, onDeleteContact }) => {
 export default ContactList;
 
 ContactList.propTypes = {
-	filteredContacts: PropTypes.array.isRequired,
+	filteredContacts: PropTypes.arrayOf(
+	  PropTypes.shape({
+		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+		name: PropTypes.string.isRequired,
+		number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	  })
+	),
 	onDeleteContact: PropTypes.func.isRequired,
-};
+  };
