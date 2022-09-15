@@ -83,5 +83,5 @@ export const {
 	useSignUpMutation,
 	useSignInMutation,
 	useLogOutMutation,
-	useGetUserInfoMutation
+	useGetUserInfoMutation,
 } = apiSlice;

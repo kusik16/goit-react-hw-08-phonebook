@@ -13,34 +13,32 @@ import ProtectedRoute from 'components/protectedRoute/ProtectedRoute';
 const App = () => {
 	return (
 		<Router>
-			<div>
-				<main>
-					<Routes>
-						<Route
-							path="/goit-react-hw-08-phonebook/*"
-							element={
-								<Navigate to="/goit-react-hw-08-phonebook/contacts" />
-							}
-						/>
-						<Route
-							path="/goit-react-hw-08-phonebook/login"
-							element={<SignIn />}
-						/>
-						<Route
-							path="/goit-react-hw-08-phonebook/register"
-							element={<SignUp />}
-						/>
-						<Route
-							path="/goit-react-hw-08-phonebook/contacts"
-							element={
-								<ProtectedRoute>
-									<UserMenu />
-								</ProtectedRoute>
-							}
-						></Route>
-					</Routes>
-				</main>
-			</div>
+			<main>
+				<Routes>
+					<Route
+						path="/goit-react-hw-08-phonebook/*"
+						element={
+							<Navigate to="/goit-react-hw-08-phonebook/contacts" />
+						}
+					/>
+					<Route
+						path="/goit-react-hw-08-phonebook/login"
+						element={<SignIn />}
+					/>
+					<Route
+						path="/goit-react-hw-08-phonebook/register"
+						element={<SignUp />}
+					/>
+					<Route
+						path="/goit-react-hw-08-phonebook/contacts"
+						element={
+							<ProtectedRoute>
+								<UserMenu />
+							</ProtectedRoute>
+						}
+					></Route>
+				</Routes>
+			</main>
 		</Router>
 	);
 };
