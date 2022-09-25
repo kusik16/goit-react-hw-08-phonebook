@@ -6,17 +6,17 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-import ContactForm from '../contactForm/ContactForm';
-import Filter from '../filter/Filter';
-import ContactList from '../contactList/ContactList';
+import ContactForm from '../../contactForm/ContactForm';
+import Filter from '../../filter/Filter';
+import ContactList from '../../contactList/ContactList';
 
-import { setFilter } from '../filter/contactsSlice';
+import { setFilter } from '../../filter/contactsSlice';
 import {
 	useCreateContactMutation,
 	useDeleteContactMutation,
 	useGetContactsQuery,
 	useLogOutMutation,
-} from '../../api/apiSlice';
+} from '../../../api/apiSlice';
 
 const UserMenu = () => {
 	const [createError, setCreateError] = useState('');
@@ -31,7 +31,7 @@ const UserMenu = () => {
 	const { data: contacts = [] } = useGetContactsQuery();
 
 	const onLogOut = () => {
-		navigate('/goit-react-hw-08-phonebook/login');
+		navigate('/login');
 		logOut().then(() => {
 			localStorage.removeItem('token');
 		});

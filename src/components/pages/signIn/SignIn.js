@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
-import { useSignInMutation } from '../../api/apiSlice';
+import { useSignInMutation } from '../../../api/apiSlice';
 import validationSchema from './validationSchema';
 
 export default function SignIn() {
@@ -45,7 +45,7 @@ export default function SignIn() {
 		signIn(logInfo)
 			.unwrap()
 			.then(res => localStorage.setItem('token', res.token))
-			.then(() => navigate('/goit-react-hw-08-phonebook/contacts'))
+			.then(() => navigate('/contacts'))
 			.catch(e => {
 				if (e.status === 400) {
 					setRegError('Invalid signup data');
@@ -114,7 +114,7 @@ export default function SignIn() {
 					</Button>
 					<Grid container>
 						<Grid item>
-							<ReactLink to="/goit-react-hw-08-phonebook/register">
+							<ReactLink to="/register">
 								{"Don't have an account? Sign Up"}
 							</ReactLink>
 						</Grid>

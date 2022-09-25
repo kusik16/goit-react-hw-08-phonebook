@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -5,39 +6,31 @@ import {
 	Navigate,
 } from 'react-router-dom';
 
-import SignIn from 'components/signIn/SignIn';
-import SignUp from 'components/signUp/SignUp';
-import UserMenu from 'components/userMenu/UserMenu';
 import ProtectedRoute from 'components/protectedRoute/ProtectedRoute';
+
+const SignIn = lazy(() => import('../pages/signIn/SignIn'));
+const SignUp = lazy(() => import('../pages/signUp/SignUp'));
+const UserMenu = lazy(() => import('../pages/userMenu/UserMenu'));
 
 const App = () => {
 	return (
 		<Router>
 			<main>
-				<Routes>
-					<Route
-						path="/goit-react-hw-08-phonebook/*"
-						element={
-							<Navigate to="/goit-react-hw-08-phonebook/contacts" />
-						}
-					/>
-					<Route
-						path="/goit-react-hw-08-phonebook/login"
-						element={<SignIn />}
-					/>
-					<Route
-						path="/goit-react-hw-08-phonebook/register"
-						element={<SignUp />}
-					/>
-					<Route
-						path="/goit-react-hw-08-phonebook/contacts"
-						element={
-							<ProtectedRoute>
-								<UserMenu />
-							</ProtectedRoute>
-						}
-					></Route>
-				</Routes>
+				<Suspense>
+					<Routes basename="/goit-react-hw-08-phonebook/">
+						<Route path="/*" element={<Navigate to="contacts" />} />
+						<Route path="login" element={<SignIn />} />
+						<Route path="register" element={<SignUp />} />
+						<Route
+							path="contacts"
+							element={
+								<ProtectedRoute>
+									<UserMenu />
+								</ProtectedRoute>
+							}
+						></Route>
+					</Routes>
+				</Suspense>
 			</main>
 		</Router>
 	);
