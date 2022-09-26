@@ -14,10 +14,10 @@ const UserMenu = lazy(() => import('../pages/userMenu/UserMenu'));
 
 const App = () => {
 	return (
-		<Router>
+		<Router basename="/goit-react-hw-08-phonebook/">
 			<main>
 				<Suspense>
-					<Routes basename="/goit-react-hw-08-phonebook/">
+					<Routes>
 						<Route path="/*" element={<Navigate to="contacts" />} />
 						<Route path="login" element={<SignIn />} />
 						<Route path="register" element={<SignUp />} />
